@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'
+        'http://www.w3.org/TR/html4/loose.dtd'>
+<html>
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+    <title>Smart Office Chair</title>
+    <script src='https://www.gstatic.com/firebasejs/3.6.0/firebase.js'></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyCikmFCs003Z1LVSgYi4Bd7d+RJ6Vxu1NQ",
+            authDomain: "codelab1-ed543.firebaseapp.com",
+            databaseURL: "https://codelab1-ed543.firebaseio.com",
+            storageBucket: "codelab1-ed543.appspot.com",
+            messagingSenderId: "818006347303"
+        };
+        firebase.initializeApp(config);
+        firebase.database().ref('health').on('value', function(snapshot) {
+            document.getElementById('health-bar').style.height = (100 * snapshot.val()) + '%';
+        });
+    </script>
+    <style>
+        body {
+            padding: 20px;
+        }
+        p {
+            margin: 0;
+            padding: 0;
+        }
+        .battery {
+            position: relative;
+            width: 100px;
+            height: 300px;
+            border: 2px solid black;
+            background: #eee;
+        }
+        .battery__cell {
+            box-sizing: border-box;
+            position: relative;
+            height: 10%;
+            border: 2px solid black;
+        }
+        .battery__cell:last-child {
+            background-color: red;
+        }
+        .battery__progress {
+            overflow: hidden;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #8DE051;
+        }
+        .battery__progress:before {
+            content: '';
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background-color: orange;
+        }
+    </style>
+</head>
+    <body>
+        <div class="battery">
+            <p class="battery__progress" id="health-bar" />
+            <p class="battery__cell" />
+            <p class="battery__cell" />
+            <p class="battery__cell" />
+            <p class="battery__cell" />
+            <p class="battery__cell" />
+            <p class="battery__cell" />
+            <p class="battery__cell" />
+            <p class="battery__cell" />
+            <p class="battery__cell" />
+            <p class="battery__cell" />
+        </div>
+    </body>
+</html>
