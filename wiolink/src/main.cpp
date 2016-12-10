@@ -1,20 +1,10 @@
 #include <Arduino.h>
 #include <Ultrasonic.h>
 #include <Grove_LED_Bar.h>
-#include <ESP8266WiFi.h>
-#include <ESP8266HTTPClient.h>
-#include <ESP8266WebServer.h>
 #include <FirebaseArduino.h>
-#include <HealthTracker.h>
-#include <NtpClient.h>
-
-#define HARDCODED_TIME_TO_DISCHARGE_MS 1 * 60 * 1000
-#define HARDCODED_TIME_TO_RECHARGE_MS 30 * 1000
-#define HARDCODED_THRESHOLD_DISTANCE_CM 30
-#define WIFI_SSID "HANDSOME"
-#define WIFI_PASSWORD "handsomeisawesome"
-#define FIREBASE_HOST "codelab1-ed543.firebaseio.com"
-#define FIREBASE_SECRET "FkGmitQaMh1jV5QNvUuXBiE1HjXUd2eNXQH7fUen"
+#include "HealthTracker.h"
+#include "NtpClient.h"
+#include "Config.h"
 
 Ultrasonic ultrasonic = Ultrasonic(14);
 Grove_LED_Bar led_bar = Grove_LED_Bar(13, 12, 0);
