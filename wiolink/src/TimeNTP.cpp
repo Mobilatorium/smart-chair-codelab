@@ -1,9 +1,14 @@
 #include <TimeNTP.h>
 
+//Time library demands pointer to function as argument for setSyncProvider
+time_t GetNtpTimeS() {
+    return Time.GetNtpTime();
+}
+
 TimeNTP::TimeNTP() {
     Udp.begin(8888);
-    setSyncProvider(GetNtpTime);
-    setSyncInterval(300);
+    setSyncProvider(GetNtpTimeS);
+    setSyncInterval(10000);
     error = ER_OK;
 }
 
@@ -26,7 +31,7 @@ time_t TimeNTP::GetNtpTime()
 
   while (Udp.parsePacket() > 0) ; // discard any previously received packets
   Serial.println("Transmit NTP Request");
-  // get a random server from the pool
+  //get a random server from the pool
   WiFi.hostByName(ntpServerName, ntpServerIP);
   Serial.print(ntpServerName);
   Serial.print(": ");

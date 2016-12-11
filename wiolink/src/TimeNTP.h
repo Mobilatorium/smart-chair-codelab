@@ -16,7 +16,7 @@ enum ErrorStatus {
     ER_OK = 0,
     ER_FAILED_CONNECT_TO_NTP_SERVER = 1,
     ER_FAILED_CONNECT_TO_WIFI = 2,
-}
+};
 
 // NTP Servers:
 static const char ntpServerName[] = "us.pool.ntp.org";
@@ -43,14 +43,16 @@ public:
     String GetTimeStamp();
     ErrorStatus Error();
 
+    //this method is public for casting it to function pointer
+    //  for setSyncProvider from Time library
+    time_t GetNtpTime();
+
 private:
     ErrorStatus error;
 
-
-    /*-------- NTP code ----------*/
     WiFiUDP Udp;
     void SendNTPpacket(IPAddress &address);
-    time_t GetNtpTime();
+
 };
 
 extern TimeNTP Time;
