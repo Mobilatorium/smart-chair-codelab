@@ -113,7 +113,7 @@ WiFi инициализируется с помощью статического
 
 Для взаимодействия между WioLink и Firebase базой данных мы будем использовать библиотеку https://github.com/googlesamples/firebase-arduino. Подключение осуществляется строкой `#include <FirebaseArduino.h>`. Инициализирование Firebase происходит с помощью вызова статического метода Firebase.begin(`FIREBASE_HOST`, `FIREBASE_AUTH`).
 
-`FIREBASE_HOST` можно посмотреть на странице Firebase Admin SDK (шестеренка рядом с названием проекта > Project Settings > Service Accounts > Firebase Admin SDK > databaseURL). `FIREBASE_AUTH` можно найти в Database Secrets (шестеренка рядом с названием проекта > Project Settings > Service Accounts > Database Secrets).
+`FIREBASE_HOST` можно посмотреть на странице Firebase Admin SDK (шестеренка рядом с названием проекта > Project Settings > Service Accounts > Firebase Admin SDK > databaseURL, необходимо скопировать строку без https://). `FIREBASE_AUTH` можно найти в Database Secrets (шестеренка рядом с названием проекта > Project Settings > Service Accounts > Database Secrets).
 
 После успешной инициализации Firebase клиента мы можем работать с БД. Метод `Firebase.getInt(name)` позволяет читать целые значения, а метод `Firebase.setFloat(name, value)` позволяет записывать вещественные значения.
 
