@@ -1,0 +1,10 @@
+{
+  "busyTime" : 0,
+  "freeTime" : 1566669,
+  "iterationBatchDuration" : 500,
+  "iterationPerSec" : 10,
+  "lockTimeout" : 20000,
+  "maxDistanceSM" : 20,
+  "micMuteTimeout" : 1,
+  "soundMuteTimeout" : 1
+}
